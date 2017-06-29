@@ -23,3 +23,8 @@ const serializedB64 = Msgpackz.serializeToBase64(sourceObject)
 console.log(serializedB64)
 deserialized = Msgpackz.deserializeFromBase64(serializedB64)
 console.log(JSON.stringify(deserialized, null, 2))
+
+console.log('Source: ' + JSON.stringify(sourceObject).length +
+  ' bytes / msgpackz ' + serialized.length + ' bytes (binary) / ' +
+  serializedB64.length + ' bytes (base64)'
+)

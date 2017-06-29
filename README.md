@@ -1,6 +1,10 @@
 MessagePack meets Brotli Compression
 ====================================
 
+MessagePack with Brotli compression.
+
+It is possible to reduce data size for redundant sources.
+
 ## Use
 
 ### Serialize to Buffer, Deserialize from Buffer
@@ -31,6 +35,11 @@ const serializedB64 = Msgpackz.serializeToBase64(sourceObject)
 console.log(serializedB64) // Output 2
 deserialized = Msgpackz.deserializeFromBase64(serializedB64)
 console.log(JSON.stringify(deserialized, null, 2)) // Output 3
+
+// Output 4
+console.log('Source: ' + JSON.stringify(sourceObject).length +
+  ' bytes / msgpackz ' + serialized.length + ' bytes (binary) / ' +
+  serializedB64.length + ' bytes (base64)'
 ```
 
 ```
@@ -70,6 +79,7 @@ G4oAAGTgnBtKhY4qD7KI8h/koNVg6XfKAXscRmGBHgC+HUjuMXaNpUQSLffZjO3s29Ge8fMPgC/z4JRl
     "810"
   ]
 }
+Source: 179 bytes / msgpackz 125 bytes (binary) / 168 bytes (base64)
 ```
 
 ### Serialize to String, Deserialize from String
