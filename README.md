@@ -1,19 +1,19 @@
-MessagePack meets Brotli Compression
-====================================
+MessagePack meets Zlib Compression
+==================================
 
-MessagePack with Brotli compression.
+MessagePack with Zlib compression.
 
 It is possible to reduce data size of redundant sources.
 
-Brotli achieves very high compression ratio but not so fast. This package will be helpful in case if you want smaller serialized data. (e.g. LocalStorage, Cookie, URL/Hashbang that includes data)
+Zlib achieves high compression ratio but not so fast. This package will be helpful in case if you want smaller serialized data. (e.g. LocalStorage, Cookie, URL/Hashbang that includes data)
 
 ## Use
 
 ### Methods
-- `static Msgpackz.serialize( Object ) : Buffer`
-- `static Msgpackz.deserialize( Buffer ) : Object`
-- `static Msgpackz.serializeToBase64( Object ) : String`
-- `static Msgpackz.deserializeFromBase64( String ) : Object`
+- `static Msgpackz.serialize( obj : Object [, zlibOptions : Object] ) : Uint8Array`
+- `static Msgpackz.deserialize( buffer: Uint8Array ) : Object`
+- `static Msgpackz.serializeToBase64( obj : Object ) : String`
+- `static Msgpackz.deserializeFromBase64( base64Str : String ) : Object`
 
 ### Sample
 
@@ -52,7 +52,6 @@ console.log('Source: ' + JSON.stringify(sourceObject).length +
 ```
 
 ```
-// Output 1
 {
   "string": "yeah",
   "number": 114514,
@@ -68,11 +67,7 @@ console.log('Source: ' + JSON.stringify(sourceObject).length +
     "810"
   ]
 }
-
-// Output 2
-G4oAAGTgnBtKhY4qD7KI8h/koNVg6XfKAXscRmGBHgC+HUjuMXaNpUQSLffZjO3s29Ge8fMPgC/z4JRl5tvFb1/4bed769WWW7DkJuiLjWTpF1kec3NcnoYYju+949u5yj3b3G6jF4R29NjEufR+d+2iiB07i9scQjYMigA=
-
-// Output 3
+eNprWVZcUpSZl76kMjUxY1leaW5SatE5Bsb9QcuT8vNzUhPzDi/LSy0uSU2Z1LrEPcTRdHFaad5i7+CA1Zl5JalFQBmg3hVpickl+UWZ+SvLUosqFTISi1KWJaUm5vq5byjOTSzOUEgFiycnFhWvKMrMLc8vyklZl5yYl5eZlJiTWZyrp6e32MLQAAC/NzsZ
 {
   "string": "yeah",
   "number": 114514,
@@ -88,7 +83,7 @@ G4oAAGTgnBtKhY4qD7KI8h/koNVg6XfKAXscRmGBHgC+HUjuMXaNpUQSLffZjO3s29Ge8fMPgC/z4JRl
     "810"
   ]
 }
-Source: 179 bytes / msgpackz 125 bytes (binary) / 168 bytes (base64)
+Source: 179 bytes / msgpackz 144 bytes (binary) / 192 bytes (base64)
 ```
 
 ## Benchmark
@@ -147,22 +142,22 @@ Source: 179 bytes / msgpackz 125 bytes (binary) / 168 bytes (base64)
 
 ```
   Object round-trip
-27bytes => 18bytes
+27bytes => 26bytes
     ✓ samples[0] roundtrip
-21bytes => 13bytes
+21bytes => 22bytes
     ✓ samples[1] roundtrip
-360bytes => 207bytes
-    ✓ samples[2] roundtrip (41ms)
-379bytes => 84bytes
+360bytes => 231bytes
+    ✓ samples[2] roundtrip
+379bytes => 81bytes
     ✓ samples[3] roundtrip
 
   Object base64 round-trip
-27bytes => 24bytes
+27bytes => 36bytes
     ✓ samples[0] roundtrip
-21bytes => 20bytes
+21bytes => 32bytes
     ✓ samples[1] roundtrip
-360bytes => 276bytes
+360bytes => 308bytes
     ✓ samples[2] roundtrip
-379bytes => 112bytes
+379bytes => 108bytes
     ✓ samples[3] roundtrip
 ```

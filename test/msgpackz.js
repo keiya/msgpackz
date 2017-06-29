@@ -1,5 +1,31 @@
 const assert = require('assert')
 const Msgpackz = require('../msgpackz.js');
+const btoa = require("btoa")
+
+// https://stackoverflow.com/a/17192845
+function stringToUint(string) {
+    var string = btoa(unescape(encodeURIComponent(string))),
+        charList = string.split(''),
+        uintArray = [];
+    for (var i = 0; i < charList.length; i++) {
+        uintArray.push(charList[i].charCodeAt(0));
+    }
+    return new Uint8Array(uintArray);
+}
+
+// https://stackoverflow.com/a/21554107
+function isArrayBufEqual(buf1, buf2)
+{
+    if (buf1.byteLength != buf2.byteLength) return false;
+    var dv1 = new Uint8Array(buf1);
+    var dv2 = new Uint8Array(buf2);
+    for (var i = 0 ; i != buf1.byteLength ; i++)
+    {
+        if (dv1[i] != dv2[i]) return false;
+    }
+    return true;
+}
+
 const samples = [
   {"compact":true,"schema":0},
   [ 100, 500, 300, 200, 400 ],
@@ -46,7 +72,7 @@ const samples = [
   }
 ]
 
-describe( 'Short object round-trip', () => {
+describe( 'String round-trip', () => {
   for (let len = 0; len < 30; len++) {
     it( len + 'bytes roundtrip', () => {
       const sampleObj = "012345678901234567890123456789".slice(0,len)
@@ -60,7 +86,7 @@ describe( 'Short object round-trip', () => {
 } );
 
 
-describe( 'Short object base64 round-trip', () => {
+describe( 'String base64 round-trip', () => {
   for (let len = 0; len < 30; len++) {
     it( len + 'bytes roundtrip', () => {
       const sampleObj = "012345678901234567890123456789".slice(0,len)
