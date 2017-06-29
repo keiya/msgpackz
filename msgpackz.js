@@ -7,10 +7,18 @@ const btoa = require("btoa")
 class Msgpackz {
   static serialize(obj) {
     const msgpackBuffer = msgpack.encode(obj)
+    let buffer = null
     if (msgpackBuffer.length < 23) {
-      return msgpackBuffer
+      buffer = msgpackBuffer
     }
-    return brotli.compress(msgpackBuffer)
+    else {
+      buffer = brotli.compress(msgpackBuffer)
+    }
+
+    if (buffer.constructor === Uint8Array) {
+      return new Buffer( buffer );
+    }
+    return buffer
   }
 
   static deserialize(buffer) {
@@ -27,10 +35,6 @@ class Msgpackz {
 
   static serializeToBase64(obj) {
     const serialized = this.serialize(obj)
-    if (serialized.constructor === Uint8Array) {
-      const decoder = new te.TextDecoder('utf8')
-      return btoa(decoder.decode(serialized))
-    }
     return this.serialize(obj).toString('base64')
   }
 

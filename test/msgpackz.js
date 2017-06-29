@@ -53,6 +53,7 @@ describe( 'Short object round-trip', () => {
 
       const serialized = Msgpackz.serialize(sampleObj)
       const deserialized = Msgpackz.deserialize(serialized)
+      // console.dir([sampleObj, deserialized])
       assert(sampleObj === deserialized)
     } );
   }
@@ -66,6 +67,7 @@ describe( 'Short object base64 round-trip', () => {
 
       const serializedB64 = Msgpackz.serializeToBase64(sampleObj)
       const deserialized = Msgpackz.deserializeFromBase64(serializedB64)
+      // console.dir([sampleObj, deserialized])
       assert(sampleObj === deserialized)
     } );
   }
@@ -87,8 +89,7 @@ describe( 'Object base64 round-trip', () => {
     it( 'samples[' + i + '] roundtrip', () => {
       serializedB64 = Msgpackz.serializeToBase64(samples[i])
       deserialized = Msgpackz.deserializeFromBase64(serializedB64)
-      
-      // console.log(JSON.stringify(samples[i]).length + 'bytes => ' + serialized.length + 'bytes')
+      // console.log(JSON.stringify(samples[i]).length + 'bytes => ' + serializedB64.length + 'bytes')
       assert(JSON.stringify(samples[i]) == JSON.stringify(deserialized))
     } );
   }

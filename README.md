@@ -3,14 +3,27 @@ MessagePack meets Brotli Compression
 
 ## Use
 
+### Serialize to Buffer, Deserialize from Buffer
+
 ```js
-const Msgpackz = require('../msgpackz.js');
+const Msgpackz = require('msgpackz');
 
 const serialized = Msgpackz.serialize(sourceObject)
 const deserialized = Msgpackz.deserialize(serialized)
 ```
 
+### Serialize to String, Deserialize from String
+
+```js
+const Msgpackz = require('msgpackz');
+
+serializedB64 = Msgpackz.serializeToBase64(samples[i])
+deserialized = Msgpackz.deserializeFromBase64(serializedB64)
+```
+
 ## Benchmark
+
+### Sample dataset
 
 ```js
   const samples = [
@@ -60,7 +73,10 @@ const deserialized = Msgpackz.deserialize(serialized)
   ]
 ```
 
+### Result
+
 ```
+  Object round-trip
 27bytes => 18bytes
     ✓ samples[0] roundtrip
 21bytes => 13bytes
@@ -68,5 +84,15 @@ const deserialized = Msgpackz.deserialize(serialized)
 360bytes => 207bytes
     ✓ samples[2] roundtrip (41ms)
 379bytes => 84bytes
+    ✓ samples[3] roundtrip
+
+  Object base64 round-trip
+27bytes => 24bytes
+    ✓ samples[0] roundtrip
+21bytes => 20bytes
+    ✓ samples[1] roundtrip
+360bytes => 276bytes
+    ✓ samples[2] roundtrip
+379bytes => 112bytes
     ✓ samples[3] roundtrip
 ```
