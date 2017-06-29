@@ -3,9 +3,19 @@ MessagePack meets Brotli Compression
 
 MessagePack with Brotli compression.
 
-It is possible to reduce data size for redundant sources.
+It is possible to reduce data size of redundant sources.
+
+Brotli achieves very high compression ration but not so fast. This package will be helpful in case if you want smaller serialized data. (e.g. LocalStorage, Cookie, URL/Hashbang that includes data)
 
 ## Use
+
+### Methods
+- `static Msgpackz.serialize( Object )`
+- `static Msgpackz.deserialize( Buffer )`
+- `static Msgpackz.serializeToBase64( Object )`
+- `static Msgpackz.deserializeFromBase64( String )`
+
+### Sample
 
 ```js
 const Msgpackz = require('./msgpackz.js');
