@@ -1,6 +1,6 @@
 {
   "name": "msgpackz",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "MessagePack with compression",
   "keywords": ["messagepack", "msgpack", "compression", "serialize", "serializeer", "brotli"],
   "main": "msgpackz.js",
