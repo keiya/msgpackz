@@ -7,8 +7,6 @@ It is possible to reduce data size for redundant sources.
 
 ## Use
 
-### Serialize to Buffer, Deserialize from Buffer
-
 ```js
 const Msgpackz = require('./msgpackz.js');
 
@@ -80,15 +78,6 @@ G4oAAGTgnBtKhY4qD7KI8h/koNVg6XfKAXscRmGBHgC+HUjuMXaNpUQSLffZjO3s29Ge8fMPgC/z4JRl
   ]
 }
 Source: 179 bytes / msgpackz 125 bytes (binary) / 168 bytes (base64)
-```
-
-### Serialize to String, Deserialize from String
-
-```js
-const Msgpackz = require('msgpackz');
-
-serializedB64 = Msgpackz.serializeToBase64(sourceObject)
-deserialized = Msgpackz.deserializeFromBase64(serializedB64)
 ```
 
 ## Benchmark
