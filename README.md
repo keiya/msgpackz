@@ -10,10 +10,10 @@ Brotli achieves very high compression ratio but not so fast. This package will b
 ## Use
 
 ### Methods
-- `static Msgpackz.serialize( Object )`
-- `static Msgpackz.deserialize( Buffer )`
-- `static Msgpackz.serializeToBase64( Object )`
-- `static Msgpackz.deserializeFromBase64( String )`
+- `static Msgpackz.serialize( Object ) : Buffer`
+- `static Msgpackz.deserialize( Buffer ) : Object`
+- `static Msgpackz.serializeToBase64( Object ) : String`
+- `static Msgpackz.deserializeFromBase64( String ) : Object`
 
 ### Sample
 
