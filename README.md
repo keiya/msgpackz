@@ -5,7 +5,7 @@ MessagePack with Brotli compression.
 
 It is possible to reduce data size of redundant sources.
 
-Brotli achieves very high compression ration but not so fast. This package will be helpful in case if you want smaller serialized data. (e.g. LocalStorage, Cookie, URL/Hashbang that includes data)
+Brotli achieves very high compression ratio but not so fast. This package will be helpful in case if you want smaller serialized data. (e.g. LocalStorage, Cookie, URL/Hashbang that includes data)
 
 ## Use
 
