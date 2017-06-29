@@ -6,10 +6,70 @@ MessagePack meets Brotli Compression
 ### Serialize to Buffer, Deserialize from Buffer
 
 ```js
-const Msgpackz = require('msgpackz');
+const Msgpackz = require('./msgpackz.js');
 
+const sourceObject = {
+  "string": "yeah",
+  "number": 114514,
+  "boolean": true,
+  "nested": [
+     {
+       "GTA5": "fun",
+       "KSP": "interesting",
+       "factorio": "very hard",
+       "beamNG": "smash every cars",
+       "rimworld": "cannibalism..."
+     },
+     "810"
+   ]
+}
 const serialized = Msgpackz.serialize(sourceObject)
-const deserialized = Msgpackz.deserialize(serialized)
+let deserialized = Msgpackz.deserialize(serialized)
+console.log(JSON.stringify(deserialized, null, 2)) // Output 1
+
+const serializedB64 = Msgpackz.serializeToBase64(sourceObject)
+console.log(serializedB64) // Output 2
+deserialized = Msgpackz.deserializeFromBase64(serializedB64)
+console.log(JSON.stringify(deserialized, null, 2)) // Output 3
+```
+
+```
+// Output 1
+{
+  "string": "yeah",
+  "number": 114514,
+  "boolean": true,
+  "nested": [
+    {
+      "GTA5": "fun",
+      "KSP": "interesting",
+      "factorio": "very hard",
+      "beamNG": "smash every cars",
+      "rimworld": "cannibalism..."
+    },
+    "810"
+  ]
+}
+
+// Output 2
+G4oAAGTgnBtKhY4qD7KI8h/koNVg6XfKAXscRmGBHgC+HUjuMXaNpUQSLffZjO3s29Ge8fMPgC/z4JRl5tvFb1/4bed769WWW7DkJuiLjWTpF1kec3NcnoYYju+949u5yj3b3G6jF4R29NjEufR+d+2iiB07i9scQjYMigA=
+
+// Output 3
+{
+  "string": "yeah",
+  "number": 114514,
+  "boolean": true,
+  "nested": [
+    {
+      "GTA5": "fun",
+      "KSP": "interesting",
+      "factorio": "very hard",
+      "beamNG": "smash every cars",
+      "rimworld": "cannibalism..."
+    },
+    "810"
+  ]
+}
 ```
 
 ### Serialize to String, Deserialize from String
@@ -17,7 +77,7 @@ const deserialized = Msgpackz.deserialize(serialized)
 ```js
 const Msgpackz = require('msgpackz');
 
-serializedB64 = Msgpackz.serializeToBase64(samples[i])
+serializedB64 = Msgpackz.serializeToBase64(sourceObject)
 deserialized = Msgpackz.deserializeFromBase64(serializedB64)
 ```
 

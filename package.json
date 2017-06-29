@@ -4,7 +4,6 @@
   "description": "MessagePack with compression",
   "main": "msgpackz.js",
   "scripts": {
-    "run": "npm run-script",
     "test": "mocha test/**/*.js"
   },
   "repository": {
