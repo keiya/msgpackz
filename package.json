@@ -1,0 +1,26 @@
+{
+  "name": "msgpackz",
+  "version": "1.0.0",
+  "description": "MessagePack with compression",
+  "main": "msgpackz.js",
+  "scripts": {
+    "run": "npm run-script",
+    "test": "mocha test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.l.twogate.net:keiya/msgpack-z.git"
+  },
+  "author": "Keiya Chinen",
+  "license": "ISC",
+  "dependencies": {
+    "brotli": "~1",
+    "btoa": "^1.1.2",
+    "msgpack-lite": "~0",
+    "text-encoding": "^0.6.4"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.4.2"
+  }
+}
