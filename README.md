@@ -38,6 +38,7 @@ console.log(JSON.stringify(deserialized, null, 2)) // Output 3
 console.log('Source: ' + JSON.stringify(sourceObject).length +
   ' bytes / msgpackz ' + serialized.length + ' bytes (binary) / ' +
   serializedB64.length + ' bytes (base64)'
+)
 ```
 
 ```

@@ -2,6 +2,7 @@
   "name": "msgpackz",
   "version": "1.0.0",
   "description": "MessagePack with compression",
+  "keywords": ["messagepack", "msgpack", "compression", "serialize", "serializeer", "brotli"],
   "main": "msgpackz.js",
   "scripts": {
     "test": "mocha test/**/*.js"
