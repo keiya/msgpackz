@@ -7,8 +7,10 @@
     "msgpack",
     "compression",
     "serialize",
-    "serializeer",
-    "zlib"
+    "serializer",
+    "zlib",
+    "deflate",
+    "gzip"
   ],
   "main": "msgpackz.js",
   "scripts": {
@@ -16,8 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.l.twogate.net:keiya/msgpackz.git"
+    "url": "git+https://github.com/keiya/msgpackz.git"
   },
+  "bugs": {
+    "url": "https://github.com/keiya/msgpackz/issues"
+  },
+  "homepage": "https://github.com/keiya/msgpackz",
   "author": "Keiya Chinen",
   "license": "ISC",
   "dependencies": {
