@@ -1,17 +1,5 @@
 const assert = require('assert')
 const Msgpackz = require('../msgpackz.js');
-const btoa = require("btoa")
-
-// https://stackoverflow.com/a/17192845
-function stringToUint(string) {
-    var string = btoa(unescape(encodeURIComponent(string))),
-        charList = string.split(''),
-        uintArray = [];
-    for (var i = 0; i < charList.length; i++) {
-        uintArray.push(charList[i].charCodeAt(0));
-    }
-    return new Uint8Array(uintArray);
-}
 
 // https://stackoverflow.com/a/21554107
 function isArrayBufEqual(buf1, buf2)
