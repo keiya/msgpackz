@@ -29,7 +29,8 @@
   "dependencies": {
     "base64-arraybuffer": "^0.2.0",
     "msgpack-lite": "~0",
-    "pako": "^1.0.10"
+    "pako": "^1.0.10",
+    "lodash": ">=4.17.15"
   },
   "devDependencies": {
     "assert": "^2.0.0",
