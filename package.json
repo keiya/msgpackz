@@ -27,13 +27,13 @@
   "author": "Keiya Chinen",
   "license": "ISC",
   "dependencies": {
-    "base64-arraybuffer": "^0.2.0",
+    "base64-arraybuffer": "^1.0.1",
     "msgpack-lite": "~0",
-    "pako": "^1.0.11",
-    "lodash": ">=4.17.15"
+    "pako": "^2.0.4",
+    "lodash": ">=4.17.21"
   },
   "devDependencies": {
     "assert": "^2.0.0",
-    "mocha": "^7.2.0"
+    "mocha": "^9.1.3"
   }
 }
